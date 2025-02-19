@@ -51,12 +51,16 @@ the container.
 
 If you prefer the `docker cli` execute the following command.
 ```bash
+wget https://github.com/iamumairayub/FlareSolverr/archive/refs/heads/master.zip
+unzip master.zip
+cd FlareSolverr-master
+docker build . -t flaresolverr:latest
 docker run -d \
   --name=flaresolverr \
   -p 8191:8191 \
   -e LOG_LEVEL=info \
   --restart unless-stopped \
-  ghcr.io/flaresolverr/flaresolverr:latest
+  flaresolverr:latest
 ```
 
 If your host OS is Debian, make sure `libseccomp2` version is 2.5.x. You can check the version with `sudo apt-cache policy libseccomp2` 
